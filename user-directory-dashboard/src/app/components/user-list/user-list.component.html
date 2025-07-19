@@ -1,0 +1,52 @@
+<div class="search-sort-container">
+  <input
+    type="text"
+    [(ngModel)]="searchTerm"
+    (input)="search()"
+    placeholder="Search by name or email..."
+  />
+
+  <div class="sort-buttons">
+    <button (click)="sort('name')">Sort by Name</button>
+    <button (click)="sort('company')">Sort by Company</button>
+  </div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Company</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of paginatedUsers"
+        (click)="selectUser(user.id)"
+        [routerLink]="['/user', user.id]"
+        [ngClass]="{ selected: user.id === selectedUserId }"
+      >
+        <td data-label="Name">{{ user.name }}</td>
+        <td data-label="Email">{{ user.email }}</td>
+        <td data-label="Phone">{{ user.phone }}</td>
+        <td data-label="Company">{{ user.company.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pagination-container">
+  <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1">
+    Previous
+  </button>
+  <span>Page {{ currentPage }} of {{ totalPages() }}</span>
+  <button
+    (click)="currentPage = currentPage + 1"
+    [disabled]="currentPage === totalPages()"
+  >
+    Next
+  </button>
+</div>

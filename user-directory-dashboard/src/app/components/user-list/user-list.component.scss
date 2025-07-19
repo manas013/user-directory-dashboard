@@ -1,0 +1,159 @@
+/* Overall layout */
+.search-sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  input[type='text'] {
+    flex: 1;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .sort-buttons {
+    display: flex;
+    gap: 10px;
+
+    button {
+      padding: 10px 14px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #125a9c;
+    }
+  }
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+  }
+
+  thead {
+    background-color: #f5f5f5;
+  }
+
+  tbody tr {
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+
+  .selected {
+    background-color: #d0ebff !important;
+    font-weight: bold;
+    color: #0b5394;
+  }
+}
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  button {
+    padding: 8px 16px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  button:disabled {
+    background-color: #90caf9;
+    cursor: not-allowed;
+  }
+
+  span {
+    font-weight: 500;
+  }
+}
+
+/* Responsive Table for Mobile */
+@media (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+
+  td {
+    // display: flex;
+    // justify-content: flex-start;
+    gap: 5px;
+    align-items: center;
+    padding: 12px 8px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    word-wrap: break-word;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #555;
+    flex: 1;
+    text-align: left;
+    margin-right: 12px;
+  }
+}
+
