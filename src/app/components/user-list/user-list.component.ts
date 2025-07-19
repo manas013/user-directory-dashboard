@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user.service';
+import { UserDetailComponent } from "../../user-detail/user-detail.component";
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, UserDetailComponent],
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
@@ -23,10 +24,12 @@ export class UserListComponent {
 
   selectedUserId: number | null = null;
 
-selectUser(userId: number): void {
-  this.selectedUserId = userId;
-}
+  selectedUser: any = null;
 
+selectUser(userId: number): void {
+this.selectedUserId = userId;
+  this.selectedUser = this.users.find(u => u.id === userId);
+}
 
   constructor(private userService: UserService) {}
 

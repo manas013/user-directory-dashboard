@@ -50,3 +50,8 @@
     Next
   </button>
 </div>
+<app-user-detail
+  *ngIf="selectedUser"
+  [userData]="selectedUser"
+  (close)="selectedUser = null"
+></app-user-detail>

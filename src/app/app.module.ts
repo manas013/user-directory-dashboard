@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   declarations: [
