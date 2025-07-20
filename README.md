@@ -1,4 +1,4 @@
-
+# Hosted link :https://idyllic-crepe-12721b.netlify.app/
 # 📘 Angular User Directory Dashboard
 
 A mini Angular 19 app that fetches and displays users from an API, supports searching, sorting, pagination, and lazy-loaded user details.
